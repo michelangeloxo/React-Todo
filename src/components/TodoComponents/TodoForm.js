@@ -18,6 +18,7 @@ handleSubmit = event => {
 
 event.preventDefault();
 this.props.addTodo(this.state.newtodo); 
+this.setState({ newtodo: ""}); 
 
 }
 
@@ -26,6 +27,7 @@ render() {
         <form onSubmit={this.handleSubmit}>
             <input type='text' name='newtodo' placeholder='Add a new todo' onChange={this.handleChange} value={this.state.newtodo} />
             <button type='submit'>Add Todo</button>
+            <button onClick={this.props.filterTodos}>Clear Completed</button>
         </form>
     ); 
 }
