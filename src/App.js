@@ -1,6 +1,7 @@
 import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
+import './components/TodoComponents/Todo.css';
 
 const todoData = [ 
   {
@@ -61,11 +62,30 @@ this.setState({
    })
  }
 
+ onMouseOver = event => {
+  const el = event.target;
+  let colorhex = [
+    "#7AF377",
+    "#3498DB",
+    "#F1C530",
+    "#F29C29",
+    "#8E44AD",
+    "#4AA086",
+    "#E74C3C",
+    "#65CC71",
+    "#D3541B",
+    "#EB4367",
+    "#74F7D9",
+    "#DDA8FC"
+  ];
+  el.style.color = colorhex[Math.floor(Math.random() * 12)];
+};
+
   render() {
    
     return (
       <div>
-        <h2>Welcome to your Todo App!</h2>
+        <h2 onMouseOver={this.onMouseOver}>Welcome to your Todo App!</h2>
 
         <TodoList todos={this.state.todos} 
         toggleCompleted={this.toggleCompleted} /> 
